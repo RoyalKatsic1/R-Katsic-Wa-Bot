@@ -1,202 +1,105 @@
 <div align="center">
 
-## Knight Bot Mini
+# ROYAL KATSIC MD
 
-[![Made with Baileys](https://img.shields.io/badge/Made%20with-Baileys-00bcd4?style=for-the-badge)](https://github.com/WhiskeySockets/Baileys)
-[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+https://img.shields.io/badge/Made%20with-Baileys-00bcd4?style=for-the-badge](https://github.com/WhiskeySockets/Baileys)
+https://img.shields.io/badge/Node.js-18%2B-339933?style=for-the-badge&logo=node.js&logoColor=white](https://nodejs.org/)
+https://img.shields.io/badge/Owner-256754214612-25D366?style=for-the-badge&logo=whatsapp](https://wa.me/256754214612)
+https://img.shields.io/badge/Telegram-@amroyalkatsic-26A5E4?style=for-the-badge&logo=telegram](https://t.me/amroyalkatsic)
 
-<img src="utils/bot_image.jpg" alt="Knight Bot" width="260">
+<img src="utils/bot_image.jpg" alt="Royal Katsic MD" width="260">
+
+*Powerful WhatsApp MD Bot by Royal Katsic*
 
 </div>
 
-Knight Bot Mini is a WhatsApp MD bot built on top of the **Baileys** library.  
-It’s designed to be fast, lightweight, and easy to customize without touching the core code.  
-This project is **fully open source** — you can modify it, rebrand it, and make your **own bot** from this codebase **free of cost**, without needing any permission from our side.  
-All commands and the overall structure are written in a way that makes customization (bot image, prefix, name, features, etc.) as easy as possible.
+ROYAL KATSIC MD is a powerful, fast, and lightweight WhatsApp Multi-Device bot built on Baileys. Anti-ban optimized, RAM optimized, and fully customizable. Owner: 256754214612 | Prefix: . | Telegram: @amroyalkatsic
 
 ---
 
-
 ## ✨ Features
 
-- **Fully Open Source** – entire codebase is editable; host it anywhere (Heroku, panel, VPS, etc.).  
-- **Easy Customization via Commands** – change **bot image**, **prefix**, **channel/newsletter**, **bot name**, etc. with simple commands.  
-- **Modular Command System** – commands are organized in the `commands` folder for easy editing.  
-- **Optimized for Stability** – RAM‑optimized media handling (streaming, temp cleanup), better session handling via `sessionID` in `config.js`.  
-- **Owner Utilities** – restart, update from ZIP, and more owner‑only tools.
+- Antilink, Antitag, Antigroupmention, Antibadword, Antisticker, Antigroupstatus
+- Welcome / Goodbye with Image
+- Auto Level-Up & Economy
+- Chatbot, AFK, AutoSticker
+- Modular Commands - Edit easily in commands folder
+- Optimized - Streaming, temp cleanup, RoyalKatsic session handling
+- Owner Tools - Restart, Update, etc.
 
 ---
 
 ### 1. Fork the Repository
 
-<div align="center">
-
-<a href="https://github.com/mruniquehacker/Knightbot-MD/fork" target="_blank">
-  <img src="https://img.shields.io/badge/Fork%20Repository-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Fork on GitHub">
+<a href="https://github.com/RoyalKatsic1/R-Katsic-Wa-Bot/fork" target="_blank">
+  <img src="https://img.shields.io/badge/Fork%20Repository-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Fork">
 </a>
-
-</div>
-
-> This creates your own copy of `Knightbot-MD` under your GitHub account.
-
----
 
 ### 2. Get Pair Code
 
-Deploy a small helper to generate a **pair code** and obtain your session string.
-
-<div align="center">
-
-<a href="https://knight-bot-paircode.onrender.com/" target="_blank">
-  <img src="https://img.shields.io/badge/Generate-Pair%20Code-blueviolet?style=for-the-badge" alt="Generate Pair Code">
+<a href="https://royal-katsic-pair.onrender.com/" target="_blank">
+  <img src="https://img.shields.io/badge/Generate-Pair%20Code-blueviolet?style=for-the-badge" alt="Pair Code">
 </a>
 
-</div>
+You will get session string starting with: RoyalKatsic!H4....
 
-After scanning, you will receive a **session string** starting with:
+Paste into http://config.js: sessionID: 'RoyalKatsic!H4.....' or set SESSION_ID env variable.
 
-```text
-KnightBot!H4....
-```
+### 3. Deploy on Panel
 
-Copy that full string and paste it into `config.js`:
-
-```js
-sessionID: 'KnightBot!H4.....'
-```
-
-Or set it via the `SESSION_ID` environment variable when hosting.
-
----
-
-### 3. Deploy on Panel (Katabump, etc.)
-
-<div align="center">
-
-<a href="https://dashboard.katabump.com/auth/login#d6b7d6" target="_blank">
-  <img src="https://img.shields.io/badge/Deploy%20on-Katabump-orange?style=for-the-badge" alt="Deploy on Katabump">
+<a href="https://dashboard.katabump.com/auth/login" target="_blank">
+  <img src="https://img.shields.io/badge/Deploy%20on-Katabump-orange?style=for-the-badge" alt="Katabump">
 </a>
-
-</div>
-
-For a full step‑by‑step deployment tutorial (panels / VPS / Heroku), add or update your YouTube guide here:
-
-- **YouTube Tutorial:** *(coming soon)*
 
 ---
 
 ## 🛠 Local Setup
 
-### 1️⃣ Clone the repository
+Clone:
+git clone https://github.com/RoyalKatsic1/R-Katsic-Wa-Bot.git
+cd R-Katsic-Wa-Bot
 
-```bash
-git clone https://github.com/mruniquehacker/Knightbot-MD.git
-cd Knightbot-MD
-```
-
-### 2️⃣ Install dependencies
-
-```bash
+Install:
 npm install
-```
 
-### 3️⃣ Configure session
+Configure http://config.js:
+ownerNumber: ['256754214612'],
+botName: 'ROYAL KATSIC MD',
+prefix: '.',
+sessionID: 'RoyalKatsic!H4.....'
 
-Edit `config.js`:
-
-- **Option A: Use session string**
-
-  ```js
-  sessionID: 'KnightBot!H4.....'
-  ```
-
-- **Option B: Scan QR**
-
-  ```js
-  sessionID: ''
-  ```
-
-  Run the bot and scan the QR from the terminal.
-
-### 4️⃣ Run the bot
-
-```bash
-node index.js
-```
-
-When the bot starts:
-
-- If `sessionID` is empty, a **QR code** will appear in the terminal – scan it using **Linked Devices** in WhatsApp.  
-- If `sessionID` is set, it will log in using that session string.
+Run:
+node http://index.js
 
 ---
 
-## 🌐 Community
+## 🌐 Community & Contact
 
-<div align="center">
-
-<a href="https://t.me/+3QhFUZHx-nhhZmY1" target="_blank">
-  <img src="https://img.shields.io/badge/Join-Telegram-0088cc?style=for-the-badge&logo=telegram&logoColor=white" alt="Join Telegram">
-</a>
-
-<a href="https://whatsapp.com/channel/0029Va90zAnIHphOuO8Msp3A" target="_blank">
-  <img src="https://img.shields.io/badge/Join-WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Join WhatsApp Channel">
-</a>
-
-</div>
+Telegram: https://t.me/amroyalkatsic
+WhatsApp: https://wa.me/256754214612
+Channel: https://whatsapp.com/channel/0029Va...
 
 ---
 
 ## 🙏 Credits
 
-- **Mr Unique Hacker** – Main developer & maintainer  
-- **Baileys** – WhatsApp Web API library (`@whiskeysockets/baileys`)  
-- Other open‑source libraries listed in `package.json`
+- Royal Katsic (256754214612 / @amroyalkatsic) - Main Developer
+- Baileys - WhatsApp Web API library
+- Base rebuilt from Knight Bot Mini
 
 ---
 
-## ⚠️ Important Warning
+## ⚠️ Warning
 
-- This bot is created **for educational purposes only**.  
-- This is **NOT** an official WhatsApp bot.  
-- Using third‑party bots **may violate WhatsApp’s Terms of Service** and can lead to your account being **banned**.
-
-> You use this bot **at your own risk**.  
-> The developers are **not responsible** for any bans, issues, or damages resulting from its use.
-
----
-
-## 📝 Legal
-
-- This project is **not affiliated with, authorized, maintained, sponsored, or endorsed** by WhatsApp Inc. or any of its affiliates or subsidiaries.  
-- This is **independent and unofficial software**.  
-- **Do not spam** people using this bot.  
-- **Do not** use this bot for bulk messaging, harassment, or any **illegal activities**.  
-- The developers assume **no liability** and are **not responsible** for any misuse or damage caused by this program.
-
----
+- For educational purposes only
+- NOT official WhatsApp bot
+- Using bots may violate WhatsApp ToS and cause ban
+- Use at your own risk
 
 ## 📄 License (MIT)
 
-This project is licensed under the **MIT License**.
+MIT License - Keep credits and not use for spam/abuse.
 
-You must:
+## 📜 Copyright
 
-- Use this software in compliance with **all applicable laws and regulations**.  
-- Keep the **original license and copyright** notices.  
-- **Credit the original authors**.  
-- **Not** use this for spam, abuse, or malicious purposes.
-
----
-
-## 📜 Copyright Notice
-
-Copyright (c) **2026 Professor**.  
-All rights reserved.
-
-This project contains code from various open‑source projects and AI tools, including but not limited to:
-
-- **Baileys** – MIT License  
-- Other libraries as listed in `package.json`
-
+Copyright (c) 2026 ROYAL KATSIC MD - Royal Katsic. All rights reserved.
