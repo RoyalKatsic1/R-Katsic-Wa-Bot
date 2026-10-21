@@ -1,25 +1,22 @@
 /**
- * Global Configuration for WhatsApp MD Bot
+ * Global Configuration for ROYAL KATSIC MD
+ * Powered by Royal Katsic | Owner: 256754214612
  */
 
 module.exports = {
-    // Bot Owner Configuration
-    ownerNumber: ['9876543210'], // Add your number without + or spaces (e.g., 919876543210)
-    ownerName: ['Knight Bot'], // Owner names corresponding to ownerNumber array
+    ownerNumber: ['256754214612'],
+    ownerName: ['Royal Katsic'],
     
-    // Bot Configuration
-    botName: 'Knight Bot Mini',
-    prefix: ',',
+    botName: 'ROYAL KATSIC MD',
+    prefix: '.',
     sessionName: 'session',
     sessionID: process.env.SESSION_ID || '',
-    newsletterJid: '120363161513685998@newsletter', // Newsletter JID for menu forwarding
-    updateZipUrl: 'https://github.com/mruniquehacker/KnightBot-Mini/archive/refs/heads/main.zip', // URL to latest code zip for .update command
+    newsletterJid: '120363161513685998@newsletter',
+    updateZipUrl: 'https://github.com/RoyalKatsic1/R-Katsic-Wa-Bot/archive/refs/heads/main.zip',
     
-    // Sticker Configuration
-    packname: 'Knight Bot',
+    packname: 'ROYAL KATSIC MD | 256754214612',
     
-    // Bot Behavior
-    selfMode: false, // Private mode - only owner can use commands
+    selfMode: false,
     autoRead: false,
     autoTyping: false,
     autoBio: false,
@@ -28,69 +25,56 @@ module.exports = {
     autoReactMode: 'bot',
     autoDownload: false,
     
-    // Group Settings Defaults
     defaultGroupSettings: {
       antilink: false,
-      antilinkAction: 'delete', // 'delete', 'kick', 'warn'
+      antilinkAction: 'delete',
       antitag: false,
       antitagAction: 'delete',
-      antiall: false, // Owner only - blocks all messages from non-admins
+      antiall: false,
       antiviewonce: false,
       antibot: false,
-      antibotAction: 'warn', // 'warn' | 'kick'
-      anticall: false, // Anti-call feature
-      antigroupmention: false, // Anti-group mention feature
-      antigroupmentionAction: 'delete', // 'delete', 'kick'
-      antigroupstatus: false, // Block group status posts
-      antigroupstatusAction: 'delete', // 'delete', 'kick'
-      antisticker: false, // Stickers not allowed in group
-      antistickerAction: 'delete', // 'delete', 'kick'
-      antibadword: false, // Block bad words in group
-      antibadwordAction: 'delete', // 'delete', 'kick', 'warn'
+      antibotAction: 'warn',
+      anticall: false,
+      antigroupmention: false,
+      antigroupmentionAction: 'delete',
+      antigroupstatus: false,
+      antigroupstatusAction: 'delete',
+      antisticker: false,
+      antistickerAction: 'delete',
+      antibadword: false,
+      antibadwordAction: 'delete',
       welcome: false,
-      welcomeMessage: '╭╼━≪•𝙽𝙴𝚆 𝙼𝙴𝙼𝙱𝙴𝚁•≫━╾╮\n┃𝚆𝙴𝙻𝙲𝙾𝙼𝙴: @user 👋\n┃Member count: #memberCount\n┃𝚃𝙸𝙼𝙴: time⏰\n╰━━━━━━━━━━━━━━━╯\n\n*@user* Welcome to *@group*! 🎉\n*Group 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝚃𝙸𝙾𝙽*\ngroupDesc\n\n> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ botName*',
+      welcomeMessage: '╭╼━≪• ROYAL KATSIC MD •≫━╾╮\n┃WELCOME: @user 👋\n┃Count: #memberCount\n┃TIME: time⏰\n╰━━━━━━━━━━━━━━━╯\n\n*@user* Welcome to *@group*! 🎉\n\n> *Powered by ROYAL KATSIC MD*',
       goodbye: false,
-      goodbyeMessage: 'Goodbye @user 👋 We will never miss you!',
+      goodbyeMessage: 'Goodbye @user 👋',
       antiSpam: false,
       antidelete: false,
       nsfw: false,
       detect: false,
       chatbot: false,
-      autosticker: false // Auto-convert images/videos to stickers
+      autosticker: false
     },
     
-    // API Keys (add your own)
-    apiKeys: {
-      // Add API keys here if needed
-      openai: '',
-      deepai: '',
-      remove_bg: ''
-    },
+    apiKeys: { openai: '', deepai: '', remove_bg: '' },
     
-    // Message Configuration
     messages: {
       wait: '⏳ Please wait...',
       success: '✅ Success!',
       error: '❌ Error occurred!',
-      ownerOnly: '👑 This command is only for bot owner!',
+      ownerOnly: '👑 This command is only for Royal Katsic!',
       adminOnly: '🛡️ This command is only for group admins!',
       groupOnly: '👥 This command can only be used in groups!',
       privateOnly: '💬 This command can only be used in private chat!',
-      botAdminNeeded: '🤖 Bot needs to be admin to execute this command!',
+      botAdminNeeded: '🤖 Bot needs to be admin!',
       invalidCommand: '❓ Invalid command! Type .menu for help'
     },
     
-    // Timezone
-    timezone: 'Asia/Kolkata',
-    
-    // Limits
+    timezone: 'Africa/Kampala',
     maxWarnings: 3,
     
-    // Social Links (optional)
     social: {
-      github: 'https://github.com/mruniquehacker',
-      instagram: 'https://instagram.com/yourusername',
-      youtube: 'http://youtube.com/@mr_unique_hacker'
+      github: 'https://github.com/RoyalKatsic1/R-Katsic-Wa-Bot',
+      whatsapp: 'https://wa.me/256754214612',
+      channel: 'https://whatsapp.com/channel/0029Va...'
     }
 };
-  
