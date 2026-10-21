@@ -1,8 +1,8 @@
 {
-  "name": "Knight Bot MINI",
-  "description": "WhatsApp MD bot (Baileys)",
-  "repository": "",
-  "keywords": ["whatsapp", "baileys", "bot", "node"],
+  "name": "Royal Katsic MD",
+  "description": "ROYAL KATSIC MD - Powerful WhatsApp MD Bot by Royal Katsic (Baileys)",
+  "repository": "https://github.com/RoyalKatsic1/R-Katsic-Wa-Bot",
+  "keywords": ["whatsapp", "baileys", "royal-katsic-md", "bot", "node", "whatsapp-bot"],
   "buildpacks": [
     {
       "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
@@ -10,10 +10,19 @@
   ],
   "env": {
     "SESSION_ID": {
-      "description": "KnightBot session string (e.g. KnightBot!<base64_compressed_data>)",
+      "description": "RoyalKatsic session string (e.g. RoyalKatsic!<base64_compressed_data>) - Get from your session generator",
       "required": false,
       "value": ""
+    },
+    "OWNER_NUMBER": {
+      "description": "Your WhatsApp number without + (e.g. 256754214612)",
+      "required": false,
+      "value": "256754214612"
+    },
+    "PREFIX": {
+      "description": "Bot prefix",
+      "required": false,
+      "value": "."
     }
   }
 }
-
