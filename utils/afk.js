@@ -1,6 +1,6 @@
 /**
- * AFK (Away From Keyboard) — owner offline mode
- * Stored in database/afk.json; per-user notify tracking in memory
+ * AFK (Away From Keyboard) — Royal Katsic MD
+ * Stored in database/afk.json
  */
 
 const fs = require('fs');
@@ -11,64 +11,52 @@ const AFK_FILE = path.join(DB_PATH, 'afk.json');
 
 const notifiedUsers = new Set();
 
-const DEFAULT_MESSAGE =
-  '🔴 *AFK Mode ON*\n\nMy owner is currently offline. Please try again later.';
+const DEFAULT_MESSAGE = '🔴 *AFK Mode ON*\n\nMy owner is currently offline. Please try again later.';
 
 function loadState() {
   try {
     if (fs.existsSync(AFK_FILE)) {
-      return JSON.parse(fs.readFileSync(AFK_FILE, 'utf8'));
+      const d = JSON.parse(fs.readFileSync(AFK_FILE, 'utf8'));
+      return {
+        enabled: !!d.enabled,
+        message: d.message?.trim() || DEFAULT_MESSAGE,
+        enabledAt: d.enabledAt || null
+      };
     }
-  } catch (e) {
-    console.error('[afk] load error:', e.message);
-  }
-  return { enabled: false, message: DEFAULT_MESSAGE };
+  } catch {}
+  return { enabled: false, message: DEFAULT_MESSAGE, enabledAt: null };
 }
 
 function saveState(state) {
   try {
-    if (!fs.existsSync(DB_PATH)) {
-      fs.mkdirSync(DB_PATH, { recursive: true });
-    }
-    fs.writeFileSync(AFK_FILE, JSON.stringify(state, null, 2), 'utf8');
+    if (!fs.existsSync(DB_PATH)) fs.mkdirSync(DB_PATH, { recursive: true });
+    fs.writeFileSync(AFK_FILE, JSON.stringify(state, null, 2));
     return true;
-  } catch (e) {
-    console.error('[afk] save error:', e.message);
-    return false;
-  }
+  } catch { return false; }
 }
 
-function notifyKey(chatId, senderId) {
-  return `${chatId}|${senderId}`;
-}
+const notifyKey = (chatId, senderId) => `${chatId}|${senderId}`;
 
-function isEnabled() {
-  return loadState().enabled === true;
-}
-
-function getMessage() {
-  const state = loadState();
-  return state.message || DEFAULT_MESSAGE;
-}
+const isEnabled = () => loadState().enabled;
+const getMessage = () => loadState().message;
 
 function setEnabled(enabled, customMessage) {
   notifiedUsers.clear();
-  const state = loadState();
-  state.enabled = enabled;
-  if (enabled && customMessage) {
-    state.message = customMessage;
-  } else if (!enabled) {
-    state.message = DEFAULT_MESSAGE;
-  }
-  state.enabledAt = enabled ? Date.now() : null;
-  return saveState(state);
+  const on = enabled === true;
+  return saveState({
+    enabled: on,
+    message: on && customMessage?.trim() ? customMessage.trim() : DEFAULT_MESSAGE,
+    enabledAt: on ? Date.now() : null
+  });
 }
 
 function shouldNotify(chatId, senderId) {
+  if (!chatId || !senderId) return false;
   return !notifiedUsers.has(notifyKey(chatId, senderId));
 }
 
 function markNotified(chatId, senderId) {
+  if (!chatId || !senderId) return;
   notifiedUsers.add(notifyKey(chatId, senderId));
 }
 
@@ -78,5 +66,5 @@ module.exports = {
   setEnabled,
   shouldNotify,
   markNotified,
-  DEFAULT_MESSAGE,
+  DEFAULT_MESSAGE
 };
