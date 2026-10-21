@@ -1,7 +1,7 @@
 {
-    "name": "whatsapp-md-bot",
-    "version": "1.0.0",
-    "description": "WhatsApp MD-Style Multi-Command Bot with Baileys",
+    "name": "royal-katsic-md",
+    "version": "2.0.0",
+    "description": "ROYAL KATSIC MD - Powerful WhatsApp MD Bot by Royal Katsic",
     "main": "index.js",
     "type": "commonjs",
     "scripts": {
@@ -10,13 +10,13 @@
         "install:no-puppeteer": "PUPPETEER_SKIP_DOWNLOAD=true PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm install"
     },
     "keywords": [
+        "royal-katsic-md",
+        "royal-katsic",
         "whatsapp bot",
-        "Knight Bot Mini",
-        "bot",
-        "baileys",
-        "md"
+        "whatsapp md",
+        "baileys"
     ],
-    "author": "Your Name",
+    "author": "Royal Katsic",
     "license": "MIT",
     "dependencies": {
         "@bochilteam/scraper": "^5.0.1",
