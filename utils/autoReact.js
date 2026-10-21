@@ -1,60 +1,52 @@
-// utils/autoReact.js
+// utils/autoReact.js - Royal Katsic MD
+
 const fs = require('fs');
 const path = require('path');
 
 const CONFIG_PATH = path.join(__dirname, '../config.js');
 
 function load() {
-    try {
-        // Clear require cache to get fresh config
-        delete require.cache[require.resolve('../config.js')];
-        const config = require('../config.js');
-        
-        return {
-            enabled: config.autoReact || false,
-            mode: config.autoReactMode || 'bot'
-        };
-    } catch {
-        return {
-            enabled: false,
-            mode: 'bot'
-        };
-    }
+  try {
+    delete require.cache[require.resolve(CONFIG_PATH)];
+    const { autoReact, autoReactMode } = require(CONFIG_PATH);
+    return {
+      enabled: !!autoReact,
+      mode: ['bot', 'all', 'owner'].includes(autoReactMode) ? autoReactMode : 'bot'
+    };
+  } catch {
+    return { enabled: false, mode: 'bot' };
+  }
 }
 
-function save(data) {
-    try {
-        const configContent = fs.readFileSync(CONFIG_PATH, 'utf8');
-        
-        let updatedContent = configContent;
-        
-        // Update autoReact value
-        updatedContent = updatedContent.replace(
-            /autoReact:\s*(true|false)/,
-            `autoReact: ${data.enabled}`
-        );
-        
-        // Update or add autoReactMode
-        if (configContent.includes('autoReactMode:')) {
-            updatedContent = updatedContent.replace(
-                /autoReactMode:\s*['"]\w+['"]/,
-                `autoReactMode: '${data.mode}'`
-            );
-        } else {
-            // Add autoReactMode after autoReact line
-            updatedContent = updatedContent.replace(
-                /(autoReact:\s*(?:true|false),?)/,
-                `$1\n    autoReactMode: '${data.mode}',`
-            );
-        }
-        
-        fs.writeFileSync(CONFIG_PATH, updatedContent, 'utf8');
-        
-        // Clear cache so next require gets updated values
-        delete require.cache[require.resolve('../config.js')];
-    } catch (err) {
-        console.error('[autoReact] save error:', err);
+function save({ enabled, mode }) {
+  try {
+    if (!fs.existsSync(CONFIG_PATH)) return false;
+
+    let content = fs.readFileSync(CONFIG_PATH, 'utf8');
+    const safeMode = ['bot', 'all', 'owner'].includes(mode) ? mode : 'bot';
+    const isEnabled = !!enabled;
+
+    // Update or insert autoReact
+    if (/autoReact\s*:/.test(content)) {
+      content = content.replace(/autoReact\s*:\s*(true|false)/, `autoReact: ${isEnabled}`);
+    } else {
+      content = content.replace(/(module\.exports\s*=\s*\{|config\s*=\s*\{)/, `$1\n  autoReact: ${isEnabled},`);
     }
+
+    // Update or insert autoReactMode
+    if (/autoReactMode\s*:/.test(content)) {
+      content = content.replace(/autoReactMode\s*:\s*['"]\w+['"]/, `autoReactMode: '${safeMode}'`);
+    } else {
+      content = content.replace(/autoReact\s*:\s*(?:true|false),?/, (m) => `${m}\n  autoReactMode: '${safeMode}',`);
+    }
+
+    fs.writeFileSync(CONFIG_PATH, content, 'utf8');
+    delete require.cache[require.resolve(CONFIG_PATH)];
+    return true;
+  } catch (err) {
+    console.error('[autoReact] save error:', err.message);
+    return false;
+  }
 }
 
 module.exports = { load, save };
